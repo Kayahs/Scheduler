@@ -1,0 +1,32 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "db:up": "node-pg-migrate up --create-schema",
+    "db:drop": "psql -U postgres -d postgres -c \"DROP SCHEMA IF EXISTS \\\"scheduler\\\" CASCADE\"",
+    "db:reset": "yarn db:drop && yarn db:up",
+    "db:seed": "node seeds/index.js",
+    "db:resetandseed": "yarn db:drop && yarn db:up && node seeds/index.js",
+    "start": "node index.js production",
+    "start:dev": "nodemon index.js development"
+  },
+  "type": "module",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.10.5",
+    "bcryptjs": "^2.4.3",
+    "bluebird": "^3.7.2",
+    "chalk": "^5.3.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "express": "^4.19.2",
+    "graphql": "^16.9.0",
+    "graphql-tag": "^2.12.6",
+    "jsonwebtoken": "^9.0.2",
+    "path": "^0.12.7"
+  }
+}
