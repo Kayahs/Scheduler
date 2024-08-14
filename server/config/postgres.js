@@ -1,4 +1,4 @@
-const { Pool } = require("pg")
+import { Pool } from "pg"
 
 const postgres = new Pool({
   host: "localhost",
@@ -9,4 +9,4 @@ const postgres = new Pool({
   connectionTimeoutMillis: 2000
 })
 
-module.exports = postgres
+export default postgres
