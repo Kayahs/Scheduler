@@ -9,7 +9,7 @@ const userSeeds = [
   {
     fullname: "Akshay Manchanda",
     email: "akshay@akshay.com",
-    password: "$2a$12$C3fzh/z1u9PpTxjEPsK1SefXVritcsDfcL6ftQzWSkfgouSKR6BfS"
+    password: "$2a$12$9ViOGmMRWeUG.6o.GTRyX.ZFzVCZoHg.v7r0mErpBMIDua7.wcIdC"
   }
 ]
 
