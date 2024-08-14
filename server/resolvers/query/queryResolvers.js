@@ -1,18 +1,13 @@
 export default {
   Query: {
-    async getEvents(parent, args, { postgres }, info) {
-      const getQuizzesQuery = {
-        text: "SELECT * FROM scheduler.events"
+    async getUsers(parent, args, { postgres }, info) {
+      const getUsersQuery = {
+        text: "SELECT * FROM scheduler.users"
       }
 
-      return [{
-        id: 1,
-        title: "test",
-        complete: true
-      }]
-      const getEventsResult = await postgres.query(getQuizzesQuery)
+      const getUsersResult = await postgres.query(getUsersQuery)
 
-      return getEventsResult.rows
+      return getUsersResult.rows
     }
   }
 }

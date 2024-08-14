@@ -21,7 +21,7 @@ export default {
 
         const newUserInsert = {
           text:
-            "INSERT INTO jeopardy.users (fullname, email, password) VALUES ($1, $2, $3) RETURNING *",
+            "INSERT INTO scheduler.users (fullname, email, password) VALUES ($1, $2, $3) RETURNING *",
           values: [fullname, emailLowerCase, hashedPassword]
         }
 
@@ -63,7 +63,7 @@ export default {
       const emailLowerCase = email.toString().toLowerCase()
 
       const getUser = {
-        text: "SELECT * FROM jeopardy.users WHERE email=$1",
+        text: "SELECT * FROM scheduler.users WHERE email=$1",
         values: [emailLowerCase]
       }
 

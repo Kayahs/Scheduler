@@ -2,7 +2,7 @@ import gql from 'graphql-tag'
 
 export default gql`
   type Query {
-    getEvents: [Event]
+    getUsers: [User]
   }
 
   type Mutation {
@@ -21,18 +21,6 @@ export default gql`
   type Error {
     code: Int
     message: String
-  }
-
-  type Event {
-    id: ID!
-    title: String
-    complete: Boolean!
-  }
-
-  type Question {
-    question: String
-    answer: String
-    points: Int
   }
 
   type LoginResponse {
