@@ -1,7 +1,5 @@
 import express from "express"
 import cors from "cors"
-import chalk from "chalk"
-import path from "path"
 import http from "http"
 import { ApolloServer } from "@apollo/server"
 import { expressMiddleware } from "@apollo/server/express4"
@@ -27,8 +25,6 @@ const corsConfig = {
   methods: "GET,POST"
 }
 app.set("CORS_CONFIG", corsConfig)
-
-// Allow requests from dev server address
 
 const httpServer = http.createServer(app)
 
