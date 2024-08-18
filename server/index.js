@@ -22,7 +22,7 @@ app.set("JWT_COOKIE_NAME", "token")
 
 // Allow requests from server address
 const corsConfig = {
-  origin: "http://localhost:5173",
+  origin: "http://localhost:3000",
   credentials: true,
   methods: "GET,POST"
 }
@@ -48,7 +48,7 @@ app.use(
     context: async ({ req }) => {
       if (
         req.headers.referer === "http://localhost:8080/graphql" &&
-        env !== "production"
+        process.env.NODE_ENV !== "production"
       ) {
         app.set("SKIP_AUTH", true)
       } else {
@@ -66,48 +66,3 @@ app.use(
 
 await new Promise((resolve) => httpServer.listen({ port: PORT }, resolve))
 console.log(`🚀 Server ready at http://localhost:${PORT}/graphql`);
-
-/*
-if (env !== "development") {
-  if (!jwtSecret) {
-    console.error("Need to set a secret while running in a production environment.")
-    process.exit(-1)
-    }
-    const root = path.resolve(__dirname, "../client")
-    
-    // Serve the static front-end from /public when deployed
-    app.use(express.static(root))
-  app.get("/*", function(req, res) {
-    res.sendFile(path.join(__dirname, "../client/index.html"), function(err) {
-      if (err) {
-        res.status(500).send(err)
-      }
-    })
-  })
-}
-
-
-
-
-apolloServer.applyMiddleware({
-  app,
-  uploads: true,
-  cors: corsConfig
-})
-
-let server = http.createServer(app)
-
-server.listen(PORT, () => {
-  console.log(`>> ${chalk.blue("Express running:")} http://localhost:${PORT}`)
-
-  console.log(
-    `>> ${chalk.magenta(
-      "GraphQL playground:"
-    )} http://localhost:${PORT}/graphql`
-  )
-})
-
-server.on("error", err => {
-  console.log(err)
-})
-  */
