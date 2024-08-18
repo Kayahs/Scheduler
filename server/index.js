@@ -20,7 +20,7 @@ app.set("JWT_COOKIE_NAME", "token")
 
 // Allow requests from server address
 const corsConfig = {
-  origin: "http://localhost:3000",
+  origin: "http://localhost:5173",
   credentials: true,
   methods: "GET,POST"
 }
@@ -44,7 +44,7 @@ app.use(
     context: async ({ req }) => {
       if (
         req.headers.referer === "http://localhost:8080/graphql" &&
-        process.env.NODE_ENV !== "production"
+        env !== "production"
       ) {
         app.set("SKIP_AUTH", true)
       } else {
