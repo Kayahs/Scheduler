@@ -1,5 +1,6 @@
 import { ApolloClient, InMemoryCache, ApolloLink, HttpLink, from } from '@apollo/client'
 import { onError } from "@apollo/client/link/error";
+import { GET_AUTH_STATUS } from 'gql/queries';
 
 let apolloClient = null
 const appCache = new InMemoryCache()
@@ -13,8 +14,17 @@ const buildAuthState = csrfToken => ({
   }
 })
 
+//Initialize default query values.
+appCache.writeQuery({
+  query: GET_AUTH_STATUS, 
+  data: buildAuthState(localStorage.getItem("token")) 
+})
+
 const setCSRFToken = csrfToken => {
-  appCache.writeData({ data: buildAuthState(csrfToken) })
+  appCache.writeQuery({
+    query: GET_AUTH_STATUS, 
+    data: buildAuthState(csrfToken) 
+  })
   if (!csrfToken) {
     localStorage.removeItem("token")
   } else {
