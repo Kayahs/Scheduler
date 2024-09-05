@@ -1,5 +1,5 @@
 import AppContainer from 'components/containers/AppContainer'
-import 'App.css'
+// import 'App.css'
 
 const App = () => <AppContainer />
 

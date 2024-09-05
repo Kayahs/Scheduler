@@ -7,6 +7,7 @@ import { useQuery } from '@apollo/client'
 
 import Login from 'components/routes/auth/Login'
 import Signup from 'components/routes/auth/Signup'
+import Dashboard from 'components/routes/dashboard/Dashboard'
 import ErrorPage from 'components/util/ErrorPage'
 import Loading from 'components/util/Loading'
 import { GET_AUTH_STATUS } from 'gql/queries'
