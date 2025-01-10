@@ -1,11 +1,13 @@
+import Button from "@mui/material/Button"
+
 import { FormContext } from "lib/contexts"
 
 const SubmitButton = () => (
   <FormContext.Consumer>
     {data => (
-      <button type="submit" disabled={data.isSubmitting}>
+      <Button variant="contained" type="submit" disabled={data.isSubmitting}>
         {data.options.submit.label}
-      </button>
+      </Button>
     )}
   </FormContext.Consumer>
 )
