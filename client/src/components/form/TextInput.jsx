@@ -1,21 +1,21 @@
 import { FormContext } from "lib/contexts"
+import TextField from "@mui/material/TextField"
 
-const TextInput = ({id}) => (
+const TextInput = ({id, className = ""}) => (
   <FormContext.Consumer>
     {data => (
-      <div>
-        {data.options[id].label}
-        <input
-          type={data.options[id].type}
-          name={data.options[id].name}
-          onChange={data.handleChange}
-          onBlur={data.handleBlur}
-          value={data.values[id]}
-        />
-        {data.touched[id] && data.errors[id] && (
-          <div>{data.errors[id]}</div>
-        )}
-      </div>
+      <TextField 
+        id={id}
+        className={className}
+        label={data.options[id].label}
+        error={data.touched[id] && data.errors[id]}
+        helperText={data.touched[id] && data.errors[id] ? data.errors[id] : ""}
+        type={data.options[id].type}
+        onChange={data.handleChange}
+        onBlur={data.handleBlur}
+        value={data.values[id]}
+        variant="outlined"
+      />
     )}
   </FormContext.Consumer>
 )
