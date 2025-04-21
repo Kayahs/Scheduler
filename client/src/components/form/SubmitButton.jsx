@@ -1,15 +1,15 @@
+import { useContext } from "react"
 import Button from "@mui/material/Button"
 
 import { FormContext } from "lib/contexts"
 
-const SubmitButton = () => (
-  <FormContext.Consumer>
-    {data => (
-      <Button variant="contained" type="submit" disabled={data.isSubmitting}>
-        {data.options.submit.label}
-      </Button>
-    )}
-  </FormContext.Consumer>
-)
+const SubmitButton = () => {
+  const formData = useContext(FormContext)
+  return (
+    <Button variant="contained" type="submit" disabled={formData.isSubmitting}>
+      {formData.options.submit.label}
+    </Button>
+  )
+}
 
 export default SubmitButton
